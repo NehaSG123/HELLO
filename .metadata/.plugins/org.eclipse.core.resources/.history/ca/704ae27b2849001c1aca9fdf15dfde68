@@ -1,0 +1,61 @@
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+	import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
+
+	public class Comprensive {
+
+		public static void main(String[] args)
+		throws InterruptedException{
+			// TODO Auto-generated method stub
+	//selenium code-
+			
+			
+			//create Driver object for edge browser
+			//we will strictly implement methods of webdriver
+			/*Class name =EdgeDriver;
+					
+					X driver=new X();*/
+			//invoke .exe file first
+			System.setProperty("webdriver.edge.driver","C:\\Users\\M1072983\\msedgedriver.exe");
+			WebDriver driver=new EdgeDriver();
+			driver.get("https://courses.letskodeit.com/practice");
+
+	System.setProperty("webdriver.edge.driver", "C:\\Users\\M1072983\\Desktop\\msedgedriver.exe");
+	WebDriver driver1=new EdgeDriver();
+	driver1.get("https://www.eazydiner.com/");
+	driver1.manage().timeouts().implicitlyWait(2,TimeUnit.SECONDS);
+	/* try {
+	if(driver.findElement(By.id("webpush-onsite")).isDisplayed()) {
+	driver.switchTo().frame(driver.findElement(By.id("webpush-onsite")));
+	driver.findElement(By.id("allow")).click();
+	driver.switchTo().defaultContent();
+	}
+	}
+	catch (Exception e){
+	}
+	*/
+	driver1.findElement(By.xpath("//div[@class='swiper-slide meal_boxes-2 inline-block padding-r-10 swiper-slide-next' ] ")).click();
+	Select obj=new Select(driver1.findElement(By.id("res_sort")));
+	obj.selectByValue("cost-asc");
+	driver1.findElement(By.xpath("//div[@class='filter_toogle']")).click();
+	driver1.findElement(By.xpath("//*[@id=\"restaurants\"]/div[1]/div/div[3]/div[2]/div[1]/a")).click();
+	driver1.findElement(By.id("amount")).sendKeys("100");
+	driver1.findElement(By.xpath("//*[@id=\"checkoutForm\"]/div[2]/button")).click();
+	driver1.findElement(By.xpath("//a[text()='Sign Up']")).click();
+	driver1.findElement(By.id("fname")).sendKeys("Atharva");
+	driver1.findElement(By.id("lname")).sendKeys("Tekade");
+	driver1.findElement(By.xpath("//div[@class='close pointer']")).click();
+	driver1.findElement(By.xpath("//div[@data-tab='menus']")).click();
+	driver1.findElement(By.xpath("//*[@id=\"slotForm\"]/div/div/button")).click();
+	driver1.findElement(By.id("//*[@id=\"checkout-button\"]")).click();
+
+
+}}
